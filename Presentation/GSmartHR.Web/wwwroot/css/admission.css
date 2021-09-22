@@ -1,0 +1,127 @@
+﻿body {
+    background-image: url('/img/whitebg.jpg');
+    /*background-color:#f2f0f1;*/
+}
+
+.topNav {
+    list-style-type: none;
+}
+
+.principalMessage {
+    background-image: url('/img/principal-message.png');
+    background-size: cover;
+    background-position: center;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.field-validation-error {
+    color: red;
+}
+
+.topNav li {
+    float: left;
+    margin-right: 5px;
+}
+
+    .topNav li:after {
+        content: ' |';
+        color: #808080;
+    }
+
+.hegher-Education-Review {
+    list-style-type: none;
+}
+
+    .hegher-Education-Review li {
+        margin-bottom: 5px;
+    }
+
+        .hegher-Education-Review li i {
+            color: #f68121;
+            padding-right: 5px;
+        }
+
+li:last-child:after {
+    content: '';
+}
+
+.wrapper {
+    width: 90%;
+    /*background-color:rgba(255, 255, 255, 0.53);*/
+    margin: 0 auto;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.navbar-nav li a {
+    /*line-height: 50px;*/
+}
+
+.navbar-custom {
+    color: white;
+    background-color: #900000;
+    border-radius: 0;
+}
+
+.notices {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.notices li {
+        margin-bottom: 15px;
+        border-bottom: 1px dotted #c1c1c1;
+        padding-bottom: 5px;
+   }
+
+.navbar-custom .navbar-nav > li > a {
+    color: white;
+    background-color: #900000;
+}
+
+.noMargin {
+    margin: 0;
+}
+
+.landingPageTablet {
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
+    height: 90px;
+    line-height: 90px;
+}
+
+.landingPageTablet a {
+     color: white;
+     text-decoration: none;
+ }
+
+.noPadding {
+    padding: 0;
+}
+
+.footer {
+    background-color: #900000;
+    color: white;
+    padding: 25px;
+}
+
+hr {
+    border-top: 2px solid #393535;
+}
+
+.prospectiveStudents li {
+    list-style-type: none;
+    padding-bottom: 15px;
+}
+
+.onlineAdmissionFormHeading {
+    background-color: #d40e02;
+    padding: 10px;
+    font-size: 18px;
+    color: white;
+    margin-bottom: 5px;
+    border: 5px solid #900000;
+    border-radius: 50px;
+}

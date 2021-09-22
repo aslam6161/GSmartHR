@@ -1,0 +1,57 @@
+
+
+@section scripts{
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+
+            $('#AttendanceTableContainer').jtable({
+                title: 'Attendance List',
+                paging: true,
+                defaultSorting: 'EmployeeIdNo ASC',
+                actions: {
+                    listAction: '/admin/Attendance/GetAttendancesByFiter'
+                },
+                fields: {
+                    Id: {
+                        key: true,
+                        create: false,
+                        edit: false,
+                        list: false
+                    },
+                     EmployeeIdNo: {
+                         title: 'EmployeeIdNo',
+                        width: '23%'
+                    },
+                    StartDateTime: {
+                        title: 'StartDateTime'
+                    },
+                    EndDateTime: {
+                        title: 'EndDateTime'
+                    }                
+                }
+            });
+
+
+            $('#LoadRecordsButton').click(function (e) {
+                e.preventDefault();
+                $('#AttendanceTableContainer').jtable('load', {
+                    employeeidno: $('#employeeidno').val()
+                });
+            });
+
+            $('#LoadRecordsButton').click();
+        });
+
+    </script>
+}
+
+
+<div class="filtering">
+    <form>
+        employeeidno: <input type="text" name="employeeidno" id="employeeidno" />
+        <button type="submit" id="LoadRecordsButton">search</button>
+    </form>
+</div>
+
+<div style="margin-top:50px" id="AttendanceTableContainer"></div>

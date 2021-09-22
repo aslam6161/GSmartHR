@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="EPPlus" Version="4.5.2.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\GSmartHR.Core\GSmartHR.Core.csproj" />
+    <ProjectReference Include="..\GSmartHR.IRepository\GSmartHR.IRepository.csproj" />
+    <ProjectReference Include="..\GSmartHR.Repository\GSmartHR.Repository.csproj" />
+  </ItemGroup>
+
+</Project>

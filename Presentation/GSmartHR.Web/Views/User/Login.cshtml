@@ -1,0 +1,70 @@
+﻿@model LoginModel
+@{
+    ViewBag.Title = "Login";
+}
+
+
+@ViewBag.Data
+
+
+
+
+
+@using (Html.BeginForm())
+{
+
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card-group">
+
+
+
+                    <div class="card p-4">
+                        <div class="card-body">
+                            <h1>Login</h1>
+                            <h1 asp-validation-summary="ModelOnly"></h1>
+
+                            <p class="text-muted">Sign In to your account</p>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <svg class="c-icon">
+                                            <use xlink:href="vendors/coreui/icons/svg/free.svg#cil-user"></use>
+                                        </svg>
+                                    </span>
+                                </div>
+                                @*<input class="form-control" type="text" placeholder="Username">*@
+                                <input asp-for="Email" placeholder="User ID" class="form-control input-md" />
+                                <span asp-validation-for="Email" class="text-warning"></span>
+                            </div>
+                            <div class="input-group mb-4">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <svg class="c-icon">
+                                            <use xlink:href="vendors/coreui/icons/svg/free.svg#cil-lock-locked"></use>
+                                        </svg>
+                                    </span>
+                                </div>
+                                @*<input class="form-control" type="password" placeholder="Password">*@
+
+                                <input asp-for="Password" type="password" placeholder="Password" class="form-control" />
+                                <span asp-validation-for="Password" class="text-warning"></span>
+                            </div>
+                            <div class="row">
+                                <div class="col-6">
+                                    @*<button class="btn btn-primary px-4" type="button">Login</button>*@
+                                    <input type="submit" value="Login" id="Submit" class="btn btn-primary px-4" />
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+}

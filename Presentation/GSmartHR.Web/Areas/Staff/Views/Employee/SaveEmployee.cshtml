@@ -1,0 +1,120 @@
+@using GSmartHR.Web.Extensions
+@model EmployeeModel
+
+<div class="container-fluid bg-white pt-3 pb-3">
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-lg-6">
+                <h3 class="page-header">Save Employee</h3>
+            </div>
+        </div>
+
+
+        @using (Html.BeginForm("SaveEmployee", "Employee", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+
+                @Html.ValidationSummary()
+
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.EmployeeIdNo, new { @class = "control-label col-md-2 col-xs-2" })
+                    <div class="col-md-4 col-xs-10">
+                        @Html.DisplayFor(model => model.EmployeeIdNo, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.EmployeeIdNo, null, new { @class = "valdation-error" })
+                    </div>
+                </div>
+
+                @if (!string.IsNullOrEmpty(Model.EmployeeImagePath))
+                {
+                    <div class="form-group">
+                        Image
+                        <div class="col-md-4 col-xs-10">
+                            <img height="50" width="50" src="/Uploads/Images/@Model.EmployeeImagePath" />
+                        </div>
+                    </div>
+                }
+
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.FirstName, new { @class = "control-label col-md-2 col-xs-2" })
+                    <div class="col-md-4 col-xs-10">
+                        @Html.TextBoxFor(model => model.FirstName, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.FirstName, null, new { @class = "valdation-error" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.LastName, new { @class = "control-label col-md-2 col-xs-2" })
+                    <div class="col-md-4 col-xs-10">
+                        @Html.TextBoxFor(model => model.LastName, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.LastName, null, new { @class = "valdation-error" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.JoiningDate, new { @class = "control-label col-md-2 col-xs-2" })
+                    <div class="col-md-4 col-xs-10">
+                        @Html.TextBoxDateFor(model => model.JoiningDate, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.JoiningDate, null, new { @class = "valdation-error" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Email, new { @class = "control-label col-md-2 col-xs-2" })
+                    <div class="col-md-4 col-xs-10">
+                        @Html.TextBoxFor(model => model.Email, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Email, null, new { @class = "valdation-error" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.ContactNo, new { @class = "control-label col-md-2 col-xs-2" })
+                    <div class="col-md-4 col-xs-10">
+                        @Html.TextBoxFor(model => model.ContactNo, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.ContactNo, null, new { @class = "valdation-error" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.NationalId, new { @class = "control-label col-md-2 col-xs-2" })
+                    <div class="col-md-4 col-xs-10">
+                        @Html.TextBoxFor(model => model.NationalId, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.NationalId, null, new { @class = "valdation-error" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.OfficeName, new { @class = "control-label col-md-2 col-xs-2" })
+                    <div class="col-md-4 col-xs-10">
+                        @Html.TextBoxFor(model => model.OfficeName, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.OfficeName, null, new { @class = "valdation-error" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Department, new { @class = "control-label col-md-2 col-xs-2" })
+                    <div class="col-md-4 col-xs-10">
+                        @Html.TextBoxFor(model => model.Department, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Department, null, new { @class = "valdation-error" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Designaton, new { @class = "control-label col-md-2 col-xs-2" })
+                    <div class="col-md-4 col-xs-10">
+                        @Html.TextBoxFor(model => model.Designaton, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Designaton, null, new { @class = "valdation-error" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.ImageFile, new { @class = "control-label col-md-2 col-xs-2" })
+                    <div class="col-md-4 col-xs-10">
+                        <input type="file" name="ImageFile" />
+                        @Html.ValidationMessageFor(model => model.ImageFile, null, new { @class = "valdation-error" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-4">
+                        <input type="submit" value="Save Employee" class="btn btn-outline-primary" />
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

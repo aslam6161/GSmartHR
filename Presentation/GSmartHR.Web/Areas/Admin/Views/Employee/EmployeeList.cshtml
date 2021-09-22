@@ -1,0 +1,98 @@
+
+
+@section scripts{
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+
+            $('#EmployeeTableContainer').jtable({
+                title: 'Employee List',
+                paging: true,
+                defaultSorting: 'EmployeeIdNo ASC',
+                actions: {
+                    listAction: '/admin/Employee/GetEmployeesByFiter'
+                },
+                fields: {
+                    Id: {
+                        key: true,
+                        create: false,
+                        edit: false,
+                        list: false
+                    },
+                    EmployeeIdNo: {
+                        title: 'EmployeeId No',
+                        width: '23%'
+                    },
+                    FirstName: {
+                        title: 'FirstName'
+                    },
+                    Email: {
+                        title: 'Email'
+                    },
+                    ContactNo: {
+                        title: 'ContactNo'
+                    },
+                    Department: {
+                        title: 'Department'
+                    },
+                    Designaton: {
+                        title: 'Designaton'
+                    },
+                    JoiningDate: {
+                        title: 'Joining Date'
+                    },
+                    Image: {
+                        title: 'Image',
+                        display: function (data) {
+                            if (!data.record.EmployeeImagePath) {
+                                return null;
+                            }
+                            else {
+                                var dlt = "<img height='100'  width='100' src='/Uploads/Images/" + data.record.EmployeeImagePath + "'/>";
+                                return dlt;
+                            }
+                        }
+                    },
+                    Action: {
+                        title: 'Action',
+                        display: function (data) {
+                            var msg = "\"Are you sure you want to delete this?\"";
+                            var update = "<a href = '/admin/employee/saveemployee/" + data.record.UserId + "' > Edit</a> |";
+                            var dlt = "<a onclick = 'return confirm(" + msg +")' href='/admin/employee/delete/" + data.record.Id + "'>Delete</a>";
+                            return update + dlt;
+                        }
+                    }
+                }
+            });
+
+
+            $('#LoadRecordsButton').click(function (e) {
+                e.preventDefault();
+                $('#EmployeeTableContainer').jtable('load', {
+                    employeeidno: $('#employeeidno').val(),
+                    email: $('#email').val()
+                });
+            });
+
+            $('#LoadRecordsButton').click();
+        });
+
+    </script>
+}
+
+<div class="row">
+    <div class="col-md-6"><h6><a class="btn btn-primary" href="/admin/employee/saveemployee">Add New Employee</a></h6></div>
+    <div class="col-md-6">
+    <div class="text-right pr-2"><h6><a class="btn btn-primary" href="/admin/employee/report">Print Report</a></h6></div>
+</div>
+</div>
+
+<div class="filtering">
+    <form>
+        employeeidno: <input type="text" name="employeeidno" id="employeeidno" />
+        email: <input type="text" name="email" id="email" />
+        <button type="submit" id="LoadRecordsButton">search</button>
+    </form>
+</div>
+
+<div style="margin-top:50px" id="EmployeeTableContainer"></div>

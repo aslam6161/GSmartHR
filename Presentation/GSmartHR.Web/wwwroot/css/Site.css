@@ -1,0 +1,57 @@
+﻿.app-header.navbar .navbar-brand {
+    display: inline-block;
+    width: 155px;
+    height: 55px;
+    background-size: 100px;
+
+}
+
+
+table td {
+    font-size: 12px;
+}
+
+td {
+    padding: 10px;
+}
+
+table {
+    border: 1px dashed Grey;
+}
+
+.vechicle-image-container {
+    width: 320px;
+    height: 240px;
+    background-size:cover;
+    background-position:center;
+    background-repeat: no-repeat;
+    display: block;
+    border: 1px solid grey;
+    float:left;
+    margin-right:15px;
+}
+
+.vehicleClass-search.results {
+    padding: 20px;
+}
+
+   .vehicleClass-search.results > .each-item {
+
+        width: 30%;
+        display: inline-block;
+        height: 500px;
+        margin: 5px;
+        padding: 15px;
+        background: white;
+        border: none;
+    }
+
+.trip-price > .input-price{
+    width:60px;
+    display:inline-block;
+}
+
+.trip-combination thead th {
+    font-size: medium;
+    color: darkred;
+}

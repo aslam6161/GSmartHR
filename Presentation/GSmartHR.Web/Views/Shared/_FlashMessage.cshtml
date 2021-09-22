@@ -1,0 +1,8 @@
+﻿@if (TempData["message"] != null)
+{
+    
+    <div class="alert alert-success">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close"><i class="glyphicon glyphicon-remove" style="font-size:18px;"></i></a>
+        <strong>@TempData["message"]</strong>
+    </div>
+}

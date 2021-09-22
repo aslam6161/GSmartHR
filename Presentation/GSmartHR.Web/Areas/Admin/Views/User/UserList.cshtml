@@ -1,0 +1,68 @@
+﻿
+
+@section scripts{
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+
+            $('#UserTableContainer').jtable({
+                title: 'User List',
+                paging: true,
+                defaultSorting: 'Username ASC',
+                actions: {
+                    listAction: '/admin/user/GetUsernameByFiter'
+                },
+                fields: {
+                    Id: {
+                        key: true,
+                        create: false,
+                        edit: false,
+                        list: false
+                    },
+                    Username: {
+                        title: 'Username',
+                        width: '23%'
+                    },
+                    Rolename: {
+                        title: 'Role Name'
+                    },
+                    IsActive: {
+                        title: 'Is Active'
+                    },
+                    Action: {
+                        title: 'Action',
+                        display: function (data) {
+                            var msg = "\"Are you sure you want to delete this?\"";
+                            var update = "<a href = '/admin/user/saveuser/" + data.record.Id + "' > Edit</a> |";
+                            var dlt = "<a onclick = 'return confirm(" + msg+")' href='/admin/user/delete/" + data.record.Id + "'>Delete</a>";
+                            return update + dlt;
+                        }
+                    }
+                }
+            });
+
+
+            $('#LoadRecordsButton').click(function (e) {
+                e.preventDefault();
+                $('#UserTableContainer').jtable('load', {
+                    username: $('#username').val(),
+                    rolename: $('#userrole').val()
+                });
+            });
+
+            $('#LoadRecordsButton').click();
+        });
+
+    </script>
+}
+
+<h6><a class="btn btn-primary" href="/admin/user/saveuser">Add New User</a></h6>
+<div class="filtering">
+    <form>
+        username: <input type="text" name="username" id="username" />
+        userrole: <input type="text" name="userrole" id="userrole" />
+        <button type="submit" id="LoadRecordsButton">search</button>
+    </form>
+</div>
+
+<div style="margin-top:50px" id="UserTableContainer"></div>

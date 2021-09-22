@@ -1,0 +1,11 @@
+﻿{
+  "ConnectionStrings": {
+    "GSmartHRConnectionString": "server=.\\SQLEXPRESS;Database=GSmartHRDb;Integrated Security=true;"
+  },
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft": "Warning"
+    }
+  }
+}

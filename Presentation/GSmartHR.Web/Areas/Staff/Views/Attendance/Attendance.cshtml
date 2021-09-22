@@ -1,0 +1,25 @@
+@model AttendanceModel
+
+<div class="container-fluid bg-white pt-3 pb-3">
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-lg-6">
+
+                @if (Model.Status == 1)
+                {
+                    <a class="btn btn-primary" href="/staff/attendance/SaveAttendance">Take Attendance</a>
+                }
+                else if (Model.Status == 2)
+                {
+                    <a class="btn btn-primary" href="/staff/attendance/SaveAttendance">LogOff Attendance</a>
+                }
+                else
+                {
+                    <h3>attendance completed</h3>
+                }
+
+            </div>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,128 @@
+﻿@{
+    var workContext = DependencyResolver.GetService<IWorkContext>();
+}
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <base href="./">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta name="description" content="Grameen Communications">
+    <meta name="author" content="Grameen Communications">
+    <meta name="keyword" content="Grameen Communications ">
+    <title>
+        Grameen Communications @ViewBag.Title
+    </title>
+
+    <link rel="manifest" href="/assets/favicon/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/assets/favicon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+    <link href="/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/css/style.css" rel="stylesheet">
+    <link href="~/jtable.2.4.0/themes/metro/blue/jtable.css" rel="stylesheet" />
+
+
+</head>
+<body class="c-app">
+    <div class="c-sidebar c-sidebar-dark c-sidebar-fixed c-sidebar-lg-show" id="sidebar">
+        <div class="c-sidebar-brand d-lg-down-none">
+            <h3>GSmartHR</h3>
+        </div>
+
+        @Html.Partial("StaffLeftMenu")
+
+        <button class="c-sidebar-minimizer c-class-toggler" type="button" data-target="_parent" data-class="c-sidebar-minimized"></button>
+    </div>
+    <div class="c-wrapper c-fixed-components">
+
+        <header class="c-header c-header-light c-header-fixed c-header-with-subheader">
+            <button class="c-header-toggler c-class-toggler d-lg-none mfe-auto" type="button" data-target="#sidebar" data-class="c-sidebar-show">
+                <svg class="c-icon c-icon-lg">
+                    <use xlink:href="/vendors/coreui/icons/svg/free.svg#cil-menu"></use>
+                </svg>
+            </button><a class="c-header-brand d-lg-none" href="#">
+                <img class="c-sidebar-brand-full" src="/assets/brand/log.png" height="46" alt="Company Logo" />
+
+            </a>
+            <button class="c-header-toggler c-class-toggler mfs-3 d-md-down-none" type="button" data-target="#sidebar" data-class="c-sidebar-lg-show" responsive="true">
+                <svg class="c-icon c-icon-lg">
+                    <use xlink:href="/vendors/coreui/icons/svg/free.svg#cil-menu"></use>
+                </svg>
+            </button>
+            <ul class="c-header-nav d-md-down-none">
+                <li class="c-header-nav-item px-3">
+                    <a class="c-header-nav-link" asp-area="Staff" asp-controller="Home" asp-action="Index">
+                        <svg class="c-sidebar-nav-icon">
+                            <use xlink:href="/vendors/coreui/icons/svg/free.svg#cil-speedometer"></use>
+                        </svg>Dashboard
+                    </a>
+                </li>
+
+            </ul>
+            <ul class="c-header-nav ml-auto mr-4">
+
+
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <li><a asp-area="" asp-controller="User" asp-action="SignOut">Logout</a></li>
+                }
+                else
+                {
+                    <li><a asp-area="" asp-controller="User" asp-action="Login">Login</a></li>
+                }
+            </ul>
+
+        </header>
+        <div class="c-body">
+            <main class="c-main">
+                <div class="container-fluid">
+                    <div class="fade-in">
+                        <div class="row">
+
+
+                            <div class="col-lg-12">
+                                @RenderBody()
+                            </div>
+
+
+                        </div>
+
+                    </div>
+                </div>
+            </main>
+
+        </div>
+    </div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js" integrity="sha256-eGE6blurk5sHj+rmkfsGYeKyZx3M4bG+ZlFyA7Kns7E=" crossorigin="anonymous"></script>
+    <script src="/jtable.2.4.0/jquery.jtable.js"></script>
+
+
+    @RenderSection("scripts", false)
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
